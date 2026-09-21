@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_application_2/components/calculatorButtons.dart';
 import 'package:flutter_application_2/components/customNumberText.dart';
+import 'package:flutter_application_2/components/textDisplay.dart';
 // import 'package:flutter/widget_previews.dart';
 
 class CalculatorPage extends StatefulWidget {
@@ -39,55 +41,11 @@ class _CalculatorPageState extends State<CalculatorPage> {
 
           SizedBox(width: 15),
 
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              ElevatedButton(
-                onPressed: () {},
-                child: const Text(
-                  '+',
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                ),
-              ),
-
-              SizedBox(width: 5),
-
-              ElevatedButton(
-                onPressed: () {},
-                child: const Text(
-                  '-',
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                ),
-              ),
-
-              SizedBox(width: 5),
-
-              ElevatedButton(
-                onPressed: () {},
-                child: const Text(
-                  'x',
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                ),
-              ),
-
-              SizedBox(width: 5),
-
-              ElevatedButton(
-                onPressed: () {},
-                child: const Text(
-                  '/',
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                ),
-              ),
-            ],
-          ),
+          CalculatorButtons(onOperationPressed: (String operator) {  },),
 
           Container(
             margin: EdgeInsets.all(10),
-            child: const Text(
-              'Hasil',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            ),
+            child: TextDisplay(hasil: hasil)
           ),
         ],
       ),

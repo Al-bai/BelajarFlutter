@@ -6,6 +6,28 @@ class CalculatorButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        _buildOperationButton('+'),
+        const SizedBox(width: 5),
+        _buildOperationButton('-'),
+        const SizedBox(width: 5),
+        _buildOperationButton('x'),
+        const SizedBox(width: 5),
+        _buildOperationButton('/'),
+      ],
+    );
   }
+
+  Widget _buildOperationButton(String symbol) {
+    return ElevatedButton(
+      onPressed: () => onOperationPressed(symbol),
+      child: Text(
+        symbol,
+        style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+      ),
+    );
+  }
+  
 }
