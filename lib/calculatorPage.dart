@@ -44,8 +44,37 @@ class CalculatorPage extends StatelessWidget {
 
             CalculatorButtons(
               onOperationPressed: (String operator) {
-                double angka1 = double.tryParse(txtAngkaPertama.text) ?? 0.0;
-                double angka2 = double.tryParse(txtAngkaKedua.text) ?? 0.0;
+                String input1 = txtAngkaPertama.text.trim();
+                String input2 = txtAngkaKedua.text.trim();
+
+                if (input1.isEmpty || input2.isEmpty) {
+                  Get.snackbar(
+                    "Peringatan",
+                    "Angka pertama dan angka kedua tidak boleh kosong!",
+                    snackPosition: SnackPosition.BOTTOM,
+                    backgroundColor: Colors.amber.shade700,
+                    colorText: Colors.white,
+                    margin: const EdgeInsets.all(10),
+                    icon: const Icon(Icons.warning_amber_rounded, color: Colors.white),
+                  );
+                  return; 
+                }
+
+                double angka1 = double.parse(input1);
+                double angka2 = double.parse(input2);
+
+                if (operator == '/' && angka2 == 0) {
+                  Get.snackbar(
+                    "Peringatan",
+                    "Tidak dapat melakukan pembagian dengan angka 0!",
+                    snackPosition: SnackPosition.BOTTOM,
+                    backgroundColor: Colors.redAccent,
+                    colorText: Colors.white,
+                    margin: const EdgeInsets.all(10),
+                    icon: const Icon(Icons.error_outline, color: Colors.white),
+                  );
+                  return; // Hentikan eksekusi jika pembagi adalah 0
+                }
                     switch (operator) {
                     case '+':
                       controller.tambah(angka1, angka2);
