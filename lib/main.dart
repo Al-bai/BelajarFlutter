@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_2/routes.dart';
 import 'package:get/get.dart';
 import 'package:get/get_navigation/get_navigation.dart';
-import 'calculatorPage.dart';
+// import 'calculatorPage.dart';
 //import 'login_page.dart';
 
 void main() {
@@ -16,7 +17,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      home: CalculatorPage()
+      theme: ThemeData(
+      colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueAccent),
+      useMaterial3: true,
+    ),
+      initialRoute: Routes.registration,
+      getPages: Routes.myPages,
     );
   }
 }
