@@ -10,7 +10,7 @@ var hasilHitung = 0.0.obs;
 
   // snackbar
   Get.snackbar(
-    "hasil tambah", "hasilnya " + hasiltambah.toString(),
+    "hasil tambah", "hasilnya $hasiltambah",
     snackPosition: SnackPosition.TOP,
     backgroundColor: Colors.green,
     colorText: Colors.white,
@@ -24,7 +24,7 @@ var hasilHitung = 0.0.obs;
   hasilHitung.value = hasilkurang;
 
   // snackbar
-  Get.snackbar("hasil kurang", "hasilnya " + hasilkurang.toString(),
+  Get.snackbar("hasil kurang", "hasilnya $hasilkurang",
     snackPosition: SnackPosition.TOP,
     backgroundColor: Colors.green,
     colorText: Colors.white,
@@ -38,7 +38,7 @@ var hasilHitung = 0.0.obs;
   hasilHitung.value = hasilbagi;
 
   // snackbar
-  Get.snackbar("hasil bagi", "hasilnya " + hasilbagi.toString(), 
+  Get.snackbar("hasil bagi", "hasilnya $hasilbagi", 
     snackPosition: SnackPosition.TOP,
     backgroundColor: Colors.green,
     colorText: Colors.white,
@@ -52,7 +52,7 @@ var hasilHitung = 0.0.obs;
   hasilHitung.value = hasilkali;
 
   // snackbar
-  Get.snackbar("hasil kali", "hasilnya " + hasilkali.toString(), 
+  Get.snackbar("hasil kali", "hasilnya $hasilkali", 
     snackPosition: SnackPosition.TOP,
     backgroundColor: Colors.green,
     colorText: Colors.white,
