@@ -1,5 +1,5 @@
 import 'package:flutter_application_2/controllers/list_makanan_controller.dart';
-import 'package:flutter_application_2/pages/detail_makanan_page.dart';
+import 'package:flutter_application_2/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -23,7 +23,7 @@ class ListMakananPage extends StatelessWidget {
             final makanan = controller.dataMakanan[index];
             return InkWell(
               onTap: () {
-                Get.to(() => DetailMakananPage(), arguments: makanan);
+                Get.toNamed(Routes.detail_makanan, arguments: makanan);
               },
               child: ListTile(
                 tileColor: Colors.blue.shade50,

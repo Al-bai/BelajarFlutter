@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_2/models/makanan_model.dart';
+import 'package:flutter_application_2/controllers/detail_makanan_controller.dart';
 import 'package:get/get.dart';
 
 class DetailMakananPage extends StatelessWidget {
-  const DetailMakananPage ({super.key});
+  DetailMakananPage ({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final MakananModel makanan = Get.arguments;
+    final controller = Get.put(DetailMakananController());
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(makanan.namaMakanan),
+        title: Text(controller.makanan.namaMakanan),
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         ),
         body: Padding(
@@ -24,26 +24,26 @@ class DetailMakananPage extends StatelessWidget {
                  width: double.infinity,
                  margin: EdgeInsets.only(bottom: 10),
                   child: Image.asset(
-                    makanan.gambarPath,
+                    controller.makanan.gambarPath,
                     height: 200,
                     width: double.infinity,
                     fit: BoxFit.cover,
                   ),
                 ),
                 Text(
-                  makanan.namaMakanan,
+                  controller.makanan.namaMakanan,
                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height: 8),
 
                 Text(
-                  "Harga: ${makanan.harga}",
+                  "Harga: ${controller.makanan.harga}",
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
                 ),
                 SizedBox(height: 12),
 
                 Text(
-                  "Rating: ${makanan.rating}",
+                  "Rating: ${controller.makanan.rating}",
                   style: TextStyle(fontSize: 16),
                 ),
                 SizedBox(height: 12),
@@ -53,7 +53,7 @@ class DetailMakananPage extends StatelessWidget {
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                 ),
                 Text(
-                  makanan.review,
+                  controller.makanan.review,
                   style: TextStyle(fontSize: 15),
                 ),
                 SizedBox(height: 12),
@@ -63,7 +63,7 @@ class DetailMakananPage extends StatelessWidget {
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                 ),
                 Text(
-                  makanan.deskripsi, 
+                  controller.makanan.deskripsi, 
                   style: TextStyle(fontSize: 15),
                 ),
               ],
