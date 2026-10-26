@@ -11,5 +11,5 @@ class ListMakananController extends GetxController {
     MakananModel(namaMakanan: "Miyago", harga: "8.000", rating: "⭐⭐⭐⭐", review: "Murah dan rekomendasi, rasanya enak juga dan ngenyangin", deskripsi: "Mi kenyal tanpa kuah yang diaduk bumbu gurih, disajikan dengan topping potongan ayam semur manis-gurih kental, sawi hijau, dan pangsit.", gambarPath: "assets/images/miyago.jpg"),
     MakananModel(namaMakanan: "Nasi Goreng", harga: "13.000", rating: "⭐⭐⭐⭐", review: "Makanan legend yang enak", deskripsi: "Nasi pera yang ditumis api besar bersama bumbu bawang, telur, dan kecap/cabai, menghasilkan bulir nasi beraroma sangit wajan (wok hei) yang gurih merata.", gambarPath: "assets/images/nasgor.jpg"),
     MakananModel(namaMakanan: "Mie Hompimpa", harga: "10.000",  rating: "⭐⭐⭐⭐", review: "Murah, cocok bagi yang seleranya asin", deskripsi: "Varian pedas asin. Mi diaduk dengan minyak gurih dan ulekan cabai rawit merah segar tanpa tambahan kecap manis. Rasanya tajam, asin, dan pedas menggigit di lidah.", gambarPath: "assets/images/hompimpa.jpg"),
-  ];
+  ].obs;
 }

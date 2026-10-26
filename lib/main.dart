@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueAccent),
       useMaterial3: true,
     ),
-      initialRoute: Routes.list_makanan,
+      initialRoute: Routes.main_menu,
       getPages: Routes.myPages,
     );
   }

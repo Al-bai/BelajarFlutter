@@ -17,27 +17,78 @@ class ListMakananPage extends StatelessWidget {
         ),
       body: Container(
         margin: EdgeInsets.all(10),
-        child: ListView.builder(
+        child: Obx (
+        () => ListView.builder(
           itemCount: controller.dataMakanan.length,
           itemBuilder: (context, index) {
             final makanan = controller.dataMakanan[index];
-            return InkWell(
-              onTap: () {
-                Get.toNamed(Routes.detail_makanan, arguments: makanan);
-              },
-              child: ListTile(
-                tileColor: Colors.blue.shade50,
-                
-                title: Text(
-                  makanan.namaMakanan,
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold,),
+
+            return Dismissible(key: ValueKey(makanan.namaMakanan),
+            direction: DismissDirection.startToEnd, 
+            background:Container(
+              color: Colors.redAccent,
+              alignment: Alignment.centerLeft,
+              padding: const EdgeInsets.only(left: 20),
+              child: const Icon(Icons.delete, color: Colors.white70,)
+
+            ),
+
+            confirmDismiss: (direction) async {
+              return await showDialog<bool>(
+                context: context,
+                builder: (BuildContext context) {
+                  return AlertDialog(
+                    title: const Text("Konfirmasi Hapus"),
+                    content: Text("Apakah kamu yakin ingin menghapus ${makanan.namaMakanan}?"),
+                    actions: [
+                      TextButton(
+                        onPressed: () => Navigator.of(context).pop(false), // Pilihan 'No'
+                        child: const Text("Batal"),
+                      ),
+                      TextButton(
+                        onPressed: () => Navigator.of(context).pop(true), // Pilihan 'Yes'
+                        child: const Text(
+                          "Hapus",
+                          style: TextStyle(color: Colors.red),
+                        ),
+                      ),
+                    ],
+                  );
+                },
+              );
+            },
+            
+            onDismissed: (direction) {
+
+              Get.snackbar(
+                "Berhasil",
+                "${makanan.namaMakanan} telah dihapus",
+                snackPosition: SnackPosition.BOTTOM,
+                duration: const Duration(seconds: 2),
+              );
+            },
+            
+
+              child:InkWell(
+                onTap: () {
+                  Get.toNamed(Routes.detail_makanan, arguments: makanan);
+                },
+                child: ListTile(
+                  tileColor: Colors.blue.shade50,
+                  
+                  title: Text(
+                    makanan.namaMakanan,
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold,),
+                  ),
+                  subtitle: Text(makanan.harga, style: TextStyle(fontSize: 15, color: Colors.green[700], fontWeight: FontWeight.w600,)),
+                  trailing: Icon(Icons.arrow_forward_ios_rounded),
                 ),
-                subtitle: Text(makanan.harga, style: TextStyle(fontSize: 15, color: Colors.green[700], fontWeight: FontWeight.w600,)),
-                trailing: Icon(Icons.arrow_forward_ios_rounded),
               ),
+
             );
           },
         ),
+      ),
       ),
     );
   }
