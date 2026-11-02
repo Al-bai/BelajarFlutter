@@ -24,6 +24,7 @@ class ListMakananPage extends StatelessWidget {
             final makanan = controller.dataMakanan[index];
 
             return Dismissible(key: ValueKey(makanan.namaMakanan),
+            
             direction: DismissDirection.startToEnd, 
             background:Container(
               color: Colors.redAccent,

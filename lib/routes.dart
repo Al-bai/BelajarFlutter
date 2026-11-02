@@ -4,9 +4,11 @@ import 'package:flutter_application_2/pages/list_makanan_page.dart';
 import 'package:flutter_application_2/pages/detail_makanan_page.dart';
 import 'package:flutter_application_2/pages/main_menu.dart';
 import 'package:flutter_application_2/registration/confirm_registration_page.dart';
+import 'package:flutter_application_2/pages/login2_page.dart';
 
 class Routes {
   static const String registration = "/registration";
+  static const String login = "/login";
   static const String confirm_registration = "/confirm_registration";
   static const String list_makanan = "/list_makanan";
   static const String detail_makanan = "/detail_makanan";
@@ -19,5 +21,6 @@ class Routes {
     GetPage(name: list_makanan, page: () => ListMakananPage()),
     GetPage(name: detail_makanan, page: () => DetailMakananPage()),
     GetPage(name: main_menu, page: () => MainMenu()),
+    GetPage(name: login, page: () => Login2Page()),
   ];
 }
